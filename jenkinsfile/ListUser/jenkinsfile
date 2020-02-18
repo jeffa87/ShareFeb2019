@@ -1,0 +1,21 @@
+pipeline {
+    agent {
+        label 'dcdLinux1'
+    }
+    
+    stages {
+
+        stage('List User'){
+            steps{
+                sh "./listZoweJenkins.sh ${profile} ${id}"
+            }
+        }
+        
+    }
+    post {
+        always {
+            echo "Post Always start"
+                cleanWs()
+        }
+    }
+}
