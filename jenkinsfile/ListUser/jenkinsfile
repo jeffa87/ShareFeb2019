@@ -2,13 +2,17 @@ pipeline {
     agent {
         label 'dcdLinux1'
     }
+
+    environment{
+        ALLJE05_MF_PASSWORD = credentials('ALLJE05_MF_PASSWORD')
+    }
     
     stages {
 
         stage('List User'){
             steps{
-                withCredentials([string(credentialsId: 'password', variable: 'password')]) {
-                    sh "./listJenkins.sh ${system} ${id} ${password} ${listID}"
+                withCredentials([string(credentialsId: 'ALLJE05_MF_PASSWORD', variable: 'password')]) {
+                    sh "./listJenkins.sh ${system} ${id} ${ALLJE05_MF_PASSWORD} ${listID}"
                 }
             }
         }
