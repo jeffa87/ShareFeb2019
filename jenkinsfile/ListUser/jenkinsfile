@@ -4,7 +4,7 @@ pipeline {
     }
 
     environment{
-        ALLJE05_MF_PASSWORD = credentials('${credentialID}')
+        ALLJE05_MF_PASSWORD = credentials(${credentialID})
     }
     
     stages {
