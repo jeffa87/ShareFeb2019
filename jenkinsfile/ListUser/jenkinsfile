@@ -4,14 +4,14 @@ pipeline {
     }
 
     environment{
-        ALLJE05_MF_PASSWORD = credentials(${credentialID})
+        MF_PASSWORD = credentials('MF_PASSWORD')
     }
     
     stages {
 
         stage('List User'){
             steps{
-                sh "./listJenkins.sh ${system} ${id} ${ALLJE05_MF_PASSWORD} ${listID}"
+                sh "./listJenkins.sh ${system} ${id} ${MF_PASSWORD} ${listID}"
             }
         }
         
