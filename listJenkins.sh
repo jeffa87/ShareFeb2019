@@ -52,4 +52,3 @@ echo "#################################JCL OUTPUT START#########################
 cat output.log
 echo "#################################JCL OUTPUT END###################################"
 
-read -p "Press any key to continue... " -n1 -s
